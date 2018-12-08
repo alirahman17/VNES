@@ -10,7 +10,7 @@ create_clock -period 10.000 [get_ports CLK_100MHZ]
 # ----------------------------------------------------------------------------
 # JA Pmod - Bank 13
 # ----------------------------------------------------------------------------
-#set_property PACKAGE_PIN Y11  [get_ports {JA1}];  # "JA1"
+#set_property PACKAGE_PIN Y11  [get_ports {AUDIO}];  # "JA1"
 #set_property PACKAGE_PIN AA8  [get_ports {JA10}];  # "JA10"
 #set_property PACKAGE_PIN AA11 [get_ports {JA2}];  # "JA2"
 #set_property PACKAGE_PIN Y10  [get_ports {JA3}];  # "JA3"
@@ -27,7 +27,7 @@ set_property PACKAGE_PIN W12 [get_ports NES_JOYPAD_CLK]
 set_property PACKAGE_PIN W11 [get_ports NES_JOYPAD_LATCH]
 set_property PACKAGE_PIN V10 [get_ports NES_JOYPAD_DATA1]
 set_property PACKAGE_PIN W8 [get_ports NES_JOYPAD_DATA2]
-#set_property PACKAGE_PIN V12 [get_ports {JB7}];  # "JB7"
+set_property PACKAGE_PIN V12 [get_ports {AUDIO}];  # "JB7"
 #set_property PACKAGE_PIN W10 [get_ports {JB8}];  # "JB8"
 #set_property PACKAGE_PIN V9 [get_ports {JB9}];  # "JB9"
 #set_property PACKAGE_PIN V8 [get_ports {JB10}];  # "JB10"
@@ -171,8 +171,8 @@ set_property IOSTANDARD LVCMOS33 [get_ports AUDIO]
 set_property IOSTANDARD LVCMOS18 [get_ports BTN_EAST]
 set_property IOSTANDARD LVCMOS18 [get_ports BTN_SOUTH]
 set_property IOSTANDARD LVCMOS33 [get_ports NES_JOYPAD_CLK]
+set_property IOSTANDARD LVCMOS33 [get_ports NES_JOYPAD_LATCH]
 set_property IOSTANDARD LVCMOS33 [get_ports VGA_HSYNC]
 set_property IOSTANDARD LVCMOS33 [get_ports VGA_VSYNC]
-set_property IOSTANDARD LVCMOS33 [get_ports NES_JOYPAD_LATCH]
-set_property IOSTANDARD LVCMOS33 [get_ports NES_JOYPAD_DATA2]
 set_property IOSTANDARD LVCMOS33 [get_ports NES_JOYPAD_DATA1]
+set_property IOSTANDARD LVCMOS33 [get_ports NES_JOYPAD_DATA2]
