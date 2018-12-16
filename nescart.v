@@ -30,13 +30,13 @@ wire [7:0]  prgrom_bram_dout;
 
 // Block ram instance for prog-rom memory range (0x8000 - 0xFFFF).
 
-single_port_ram_sync #(.ADDR_WIDTH(15),
+synch_ram #(.ADDR_WIDTH(15),
                        .DATA_WIDTH(8)) prgrom_bram(
   .clk(clk_in),
-  .we(prgrom_bram_we),
-  .addr_a(prgrom_bram_a),
-  .din_a(prg_d_in),
-  .dout_a(prgrom_bram_dout)
+  .write_en(prgrom_bram_we),
+  .addr(prgrom_bram_a),
+  .data_in(prg_d_in),
+  .data_out(prgrom_bram_dout)
 );
 
 assign prgrom_bram_we = (~prg_nce_in) ? ~prg_r_nw_in     : 1'b0;
@@ -47,13 +47,13 @@ wire       chrrom_pat_bram_we;
 wire [7:0] chrrom_pat_bram_dout;
 
 // Block ram instance for character pattern table 
-single_port_ram_sync #(.ADDR_WIDTH(13),
+synch_ram #(.ADDR_WIDTH(13),
                        .DATA_WIDTH(8)) chrrom_pat_bram(
   .clk(clk_in),
-  .we(chrrom_pat_bram_we),
-  .addr_a(chr_a_in[12:0]),
-  .din_a(chr_d_in),
-  .dout_a(chrrom_pat_bram_dout)
+  .write_en(chrrom_pat_bram_we),
+  .addr(chr_a_in[12:0]),
+  .data_in(chr_d_in),
+  .data_out(chrrom_pat_bram_dout)
 );
 
 assign ciram_nce_out      = ~chr_a_in[13];
